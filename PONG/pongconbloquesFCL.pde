@@ -125,7 +125,7 @@ void inicio() {
 
 void juego() {
 
-  //Definimos el texto de los puntos y las vidas
+  // escribir vidas a la derecha y puntos a la izquierda con sus respectivos valores
   textSize(20); 
   fill(0);
   textAlign(RIGHT);
@@ -144,7 +144,7 @@ void juego() {
   
   rebotes(); // rebotes pantalla y pala
   
-  terminarPartida();
+  terminarPartida(); // al ganar o perder
   
 }
 
@@ -210,7 +210,8 @@ void rebotes() {
   }
 }
 
-void ganado() {
+//GANAR: tipo de letra,centrar,texto; boton de volver a jugar es una elipse con texto
+void ganado() { 
 textFont(letra, 60);
   fill(mouseX, mouseY, height);
   textAlign(CENTER);
@@ -228,7 +229,7 @@ textFont(letra, 60);
   textAlign(CENTER);
   text("Si quieres salir pulsa S", 390, 485);
 
-  //Botón de reintentar: relleno, color de linea, dos elipses, letra, color, centrar, texto 
+  //Botón de volver a jugar: relleno, color de linea, dos elipses, letra, color, centrar, texto 
   fill(#98CBC2);
   stroke(#FFFFFF);
   ellipse(248, 390, 300, 120);
@@ -272,7 +273,7 @@ void perdido() {
 }
 
 
-//PULSAR
+// CLICK
 void mouseClicked() {
 
   if (mouseX>160 && mouseX<370 && mouseY<430 && mouseY>350 && pantalla==0 ) { // click en la elipse que pone PLAY
@@ -353,6 +354,7 @@ void dibujarBloque() {
   
 }
 
+// si no tenemos vidas perdemos, si tenemos 5 puntos ganamos; un punto= un bloque; perdemos una vida cuando la bola toca la parte de abajo
 void terminarPartida() {
   if (posybola>=height) {
     vidas=vidas-1;
@@ -363,7 +365,7 @@ void terminarPartida() {
 
 }
   
-void keyPressed() { //pulsar S para salir
+void keyPressed() { //pulsar S para salir en las pantallas de perder o ganar
   switch (key) {
   case 's': 
     if (pantalla == 2||pantalla==3) { 
