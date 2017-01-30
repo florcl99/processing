@@ -17,14 +17,14 @@ float posxpala=0; // posicion de la pala en X
 
 PFont letra; // letra de inicio
 
-int pantalla=0; // distfloatas pantallas de juego
+int pantalla=0; // distintas pantallas de juego
 
 
 void setup() {
   
-  size (500, 500); // pantalla de juego
+  size (500, 500); // tamaño de la pantalla de juego
   colorMode(HSB, height, height, height); // paleta de colores
-  letra= createFont("ColonnaMT-48", 30); // tipo de letra que queremos
+  letra= createFont("ColonnaMT-48", 30); // tipo de letra 
 
   iniciovariables();
 }
