@@ -9,7 +9,7 @@ float velxbola= 1; // velocidad en x
 float velybola=3; // velocidad en y
 float radio=12; // radio de la bola
 
-//velocidad y rebote
+//velocidad en funcion del rebote y rebote nuevo
 float inicioVelXmax=5;
 float inicioVelYmin=5;
 float velXmax;
@@ -143,8 +143,8 @@ void moverbola() {
 void moverpala() {
   
   rectMode(CENTER); //centro en el la pala
-  posxpala=mouseX;
-  posypala=450;// posicion de la pala en X
+  posxpala=mouseX; // posicion de la pala en x en funcion del raton
+  posypala=450;// posicion de la pala en Y
 }  
 
 //REBOTES
@@ -160,8 +160,8 @@ void rebotes() {
   velxbola = velxbola*-1;
   }
 
- //REBOTE CON PALA
-  if( difPos<=anchopala/2+radio && difPos>=-(anchopala/2+radio) && posybola>=450-radio && posybola<=450+radio ) {
+ //REBOTE CON PALA: segun en que posicion de la pala la bola toca a esta, la bola rebota con un angulo; 450 es la posicion y de la pala
+  if( difPos<=anchopala/2+radio && difPos>=-(anchopala/2+radio) && posybola>=450-radio && posybola<=450+radio) {
 
   velXmax=velXmax+aumentoVelocidad;
   velYmin=velYmin+aumentoVelocidad;
@@ -220,7 +220,7 @@ void mouseClicked() {
   if (mouseX>160 && mouseX<370 && mouseY<430 && mouseY>350 && pantalla==0 ) { // click en la elipse que pone PLAY
   pantalla=1;
   }
-  if (mouseX>100 && mouseX<390 && mouseY<450 && mouseY>340 && pantalla==2) { // click en la figura de reiniciar
+  if (mouseX>100 && mouseX<390 && mouseY<450 && mouseY>340 && pantalla==2) { // click en la elipse de reiniciar para reiniciar el juego
   iniciovariables();    
   pantalla=1;
   }
@@ -229,7 +229,7 @@ void mouseClicked() {
 void keyPressed() { //pulsar S para salir
   switch (key) {
   case 's': 
-    if (pantalla == 2){ 
+    if (pantalla == 2){  // solo si estamos en la pantalla de perdido
     exit(); 
     break;
     }
