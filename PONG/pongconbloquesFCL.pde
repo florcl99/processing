@@ -1,5 +1,3 @@
-/* pong con bloques*/
-
 /* FLOR CORREA LÓPEZ
  2ºBACH.B IES VICENTE ALEIXANDRE
  */
